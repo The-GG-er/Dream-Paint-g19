@@ -51,8 +51,13 @@
   <ItemGroup>
     <Compile Include="Assets\Dream Painting\Scripts_Alee\LoadingScreen.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
+    <Compile Include="Assets\Dream Painting\Scripts\SettingsManager.cs" />
+    <Compile Include="Assets\Dream Painting\Scripts\MenuUI.cs" />
+    <Compile Include="Assets\Dream Painting\Scripts\GameManger.cs" />
     <Compile Include="Assets\Dream Painting\Scripts_Alee\PSDReading.cs" />
     <Compile Include="Assets\Dream Painting\Scripts_Alee\MainMenu.cs" />
+    <Compile Include="Assets\Dream Painting\Scripts\MenuLogic.cs" />
+    <Compile Include="Assets\Dream Painting\Scripts\Settings.cs" />
     <Compile Include="Assets\Dream Painting\Scripts\PlanetEEGVisualizer.cs" />
     <Compile Include="Assets\Dream Painting\Scripts\MoonScript.cs" />
     <Compile Include="Assets\Dream Painting\Scripts_Alee\UnityNetworkManager.cs" />

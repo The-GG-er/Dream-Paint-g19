@@ -1,0 +1,196 @@
+{
+    "totalSettings": 38,
+    "totalSettingsOnPlayer": 21,
+    "settings": [
+        {
+            "type": "UnityEngine.Rendering.HighDefinition.HDRenderPipelineRuntimeAssets, Unity.RenderPipelines.HighDefinition.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "isAvailableInPlayerBuild": true,
+            "strippersDefined": false
+        },
+        {
+            "type": "UnityEngine.Rendering.HighDefinition.HDRenderPipelineEditorTextures, Unity.RenderPipelines.HighDefinition.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "isAvailableInPlayerBuild": false,
+            "strippersDefined": false
+        },
+        {
+            "type": "UnityEngine.Rendering.HighDefinition.HDRPRayTracingResources, Unity.RenderPipelines.HighDefinition.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "isAvailableInPlayerBuild": false,
+            "strippersDefined": true
+        },
+        {
+            "type": "UnityEngine.Rendering.HighDefinition.HDRenderPipelineEditorMaterials, Unity.RenderPipelines.HighDefinition.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "isAvailableInPlayerBuild": false,
+            "strippersDefined": false
+        },
+        {
+            "type": "UnityEngine.Rendering.HighDefinition.HDRenderPipelineRuntimeTextures, Unity.RenderPipelines.HighDefinition.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "isAvailableInPlayerBuild": true,
+            "strippersDefined": false
+        },
+        {
+            "type": "UnityEngine.Rendering.HighDefinition.HDRenderPipelineEditorShaders, Unity.RenderPipelines.HighDefinition.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "isAvailableInPlayerBuild": false,
+            "strippersDefined": false
+        },
+        {
+            "type": "UnityEngine.Rendering.GPUResidentDrawerResources, Unity.RenderPipelines.GPUDriven.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "isAvailableInPlayerBuild": false,
+            "strippersDefined": true
+        },
+        {
+            "type": "UnityEngine.Rendering.IncludeAdditionalRPAssets, Unity.RenderPipelines.Core.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "isAvailableInPlayerBuild": false,
+            "strippersDefined": false
+        },
+        {
+            "type": "UnityEngine.Rendering.UnifiedRayTracing.RayTracingRenderPipelineResources, Unity.UnifiedRayTracing.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "isAvailableInPlayerBuild": false,
+            "strippersDefined": false
+        },
+        {
+            "type": "UnityEngine.Rendering.HighDefinition.HDRenderPipelineRuntimeMaterials, Unity.RenderPipelines.HighDefinition.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "isAvailableInPlayerBuild": true,
+            "strippersDefined": false
+        },
+        {
+            "type": "UnityEngine.Rendering.HighDefinition.HDRenderPipelineRuntimeShaders, Unity.RenderPipelines.HighDefinition.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "isAvailableInPlayerBuild": true,
+            "strippersDefined": false
+        },
+        {
+            "type": "UnityEngine.Rendering.HighDefinition.VolumetricCloudsRuntimeResources, Unity.RenderPipelines.HighDefinition.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "isAvailableInPlayerBuild": false,
+            "strippersDefined": true
+        },
+        {
+            "type": "UnityEngine.Rendering.HighDefinition.HDRPDefaultVolumeProfileSettings, Unity.RenderPipelines.HighDefinition.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "isAvailableInPlayerBuild": true,
+            "strippersDefined": false
+        },
+        {
+            "type": "UnityEngine.Rendering.HighDefinition.LensSettings, Unity.RenderPipelines.HighDefinition.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "isAvailableInPlayerBuild": true,
+            "strippersDefined": false
+        },
+        {
+            "type": "UnityEngine.Rendering.HighDefinition.WaterSystemRuntimeResources, Unity.RenderPipelines.HighDefinition.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "isAvailableInPlayerBuild": false,
+            "strippersDefined": true
+        },
+        {
+            "type": "UnityEngine.Rendering.HighDefinition.CustomPostProcessOrdersSettings, Unity.RenderPipelines.HighDefinition.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "isAvailableInPlayerBuild": true,
+            "strippersDefined": false
+        },
+        {
+            "type": "UnityEngine.Rendering.HighDefinition.RenderingPathFrameSettings, Unity.RenderPipelines.HighDefinition.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "isAvailableInPlayerBuild": true,
+            "strippersDefined": false
+        },
+        {
+            "type": "UnityEngine.Rendering.HighDefinition.ColorCheckerResources, Unity.RenderPipelines.HighDefinition.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "isAvailableInPlayerBuild": false,
+            "strippersDefined": false
+        },
+        {
+            "type": "UnityEngine.Rendering.HighDefinition.SpecularFadeSettings, Unity.RenderPipelines.HighDefinition.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "isAvailableInPlayerBuild": true,
+            "strippersDefined": false
+        },
+        {
+            "type": "UnityEngine.Rendering.HighDefinition.AnalyticDerivativeSettings, Unity.RenderPipelines.HighDefinition.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "isAvailableInPlayerBuild": true,
+            "strippersDefined": false
+        },
+        {
+            "type": "UnityEngine.Rendering.HighDefinition.ColorGradingSettings, Unity.RenderPipelines.HighDefinition.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "isAvailableInPlayerBuild": true,
+            "strippersDefined": false
+        },
+        {
+            "type": "UnityEngine.Rendering.HighDefinition.DiffusionProfileDefaultSettings, Unity.RenderPipelines.HighDefinition.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "isAvailableInPlayerBuild": false,
+            "strippersDefined": false
+        },
+        {
+            "type": "UnityEngine.Rendering.HighDefinition.LookDevVolumeProfileSettings, Unity.RenderPipelines.HighDefinition.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "isAvailableInPlayerBuild": false,
+            "strippersDefined": false
+        },
+        {
+            "type": "UnityEngine.Rendering.HighDefinition.WaterSystemGlobalSettings, Unity.RenderPipelines.HighDefinition.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "isAvailableInPlayerBuild": true,
+            "strippersDefined": false
+        },
+        {
+            "type": "UnityEngine.Rendering.HighDefinition.RenderGraphSettings, Unity.RenderPipelines.HighDefinition.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "isAvailableInPlayerBuild": true,
+            "strippersDefined": false
+        },
+        {
+            "type": "UnityEngine.Rendering.HighDefinition.HDRenderPipelineEditorAssets, Unity.RenderPipelines.HighDefinition.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "isAvailableInPlayerBuild": false,
+            "strippersDefined": false
+        },
+        {
+            "type": "UnityEditor.Rendering.HighDefinition.HDRenderingLayersLimitSettings, Unity.RenderPipelines.HighDefinition.Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "isAvailableInPlayerBuild": false,
+            "strippersDefined": false
+        },
+        {
+            "type": "UnityEngine.Rendering.RenderGraphGlobalSettings, Unity.RenderPipelines.Core.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "isAvailableInPlayerBuild": true,
+            "strippersDefined": false
+        },
+        {
+            "type": "UnityEngine.Rendering.VrsRenderPipelineRuntimeResources, Unity.RenderPipelines.Core.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "isAvailableInPlayerBuild": true,
+            "strippersDefined": false
+        },
+        {
+            "type": "UnityEngine.Rendering.RenderGraphModule.Util.RenderGraphUtilsResources, Unity.RenderPipelines.Core.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "isAvailableInPlayerBuild": true,
+            "strippersDefined": true
+        },
+        {
+            "type": "UnityEngine.Rendering.ProbeVolumeGlobalSettings, Unity.RenderPipelines.Core.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "isAvailableInPlayerBuild": true,
+            "strippersDefined": true
+        },
+        {
+            "type": "UnityEngine.Rendering.RenderingDebuggerRuntimeResources, Unity.RenderPipelines.Core.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "isAvailableInPlayerBuild": false,
+            "strippersDefined": false
+        },
+        {
+            "type": "UnityEngine.Rendering.ShaderStrippingSetting, Unity.RenderPipelines.Core.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "isAvailableInPlayerBuild": true,
+            "strippersDefined": false
+        },
+        {
+            "type": "UnityEngine.Rendering.LightmapSamplingSettings, Unity.RenderPipelines.Core.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "isAvailableInPlayerBuild": true,
+            "strippersDefined": false
+        },
+        {
+            "type": "UnityEngine.Rendering.ProbeVolumeBakingResources, Unity.RenderPipelines.Core.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "isAvailableInPlayerBuild": false,
+            "strippersDefined": true
+        },
+        {
+            "type": "UnityEngine.Rendering.ProbeVolumeRuntimeResources, Unity.RenderPipelines.Core.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "isAvailableInPlayerBuild": true,
+            "strippersDefined": true
+        },
+        {
+            "type": "UnityEngine.Rendering.ProbeVolumeDebugResources, Unity.RenderPipelines.Core.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "isAvailableInPlayerBuild": true,
+            "strippersDefined": true
+        },
+        {
+            "type": "UnityEngine.Rendering.STP+RuntimeResources, Unity.RenderPipelines.Core.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "isAvailableInPlayerBuild": false,
+            "strippersDefined": true
+        }
+    ]
+}
