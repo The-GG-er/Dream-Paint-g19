@@ -1,0 +1,396 @@
+[Licensing::Module] Trying to connect to existing licensing client channel...
+Built from '6000.3/staging' branch; Version is '6000.3.7f1 (696ec25a53d1) revision 6909634'; Using compiler version '194234433'; Build Type 'Release'
+OS: 'Windows 11  (10.0.26200) Core' Language: 'en' Physical Memory: 14181 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1
+System  architecture: x64
+Process architecture: x64
+Date: 2026-04-25T13:32:15Z
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-grego" at "2026-04-25T13:32:15.133807Z"
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\6000.3.7f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker2
+-projectPath
+C:/Users/grego/Desktop/g19_Dream_Painting
+-logFile
+Logs/AssetImportWorker2.log
+-srvPort
+49814
+-licensingIpc
+LicenseClient-grego
+-job-worker-count
+5
+-background-job-worker-count
+8
+-gc-helper-count
+1
+-name
+AssetImport
+Successfully changed project path to: C:/Users/grego/Desktop/g19_Dream_Painting
+C:/Users/grego/Desktop/g19_Dream_Painting
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-gfx=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+Player connection [50548]  Target information:
+
+Player connection [50548]  * "[IP] 192.168.1.6 [Port] 0 [Flags] 2 [Guid] 2519115622 [EditorId] 2519115622 [Version] 1048832 [Id] WindowsEditor(7,Gregs-Lenovo) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [50548] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [50548] Host joined alternative multi-casting on [225.0.0.222:34997]...
+JobSystem: Creating JobQueue using job-worker-count value 5
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+Library Redirect Path: Library/
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+Refreshing native plugins compatible for Editor in 238.19 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 6000.3.7f1 (696ec25a53d1)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/6000.3.7f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/grego/Desktop/g19_Dream_Painting/Assets
+GfxDevice: creating device client; kGfxThreadingModeNonThreaded
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: AMD Radeon(TM) Graphics (ID=0x164c)
+    Vendor:   ATI
+    VRAM:     7090 MB
+    Driver:   31.0.21912.3005
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/6000.3.7f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/6000.3.7f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/6000.3.7f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56068
+Begin MonoManager ReloadAssembly
+[Licensing::Client] Handshaking with LicensingClient:
+  Version:                 1.17.4+4293ba1
+  Session Id:              35fb80e347444e1d80b37938618e5a08
+  Correlation Id:          16202f17d9d489d171fe12a74b6d57cc
+  External correlation Id: 7050936453636050407
+  Machine Id:              LCNNiW4Nc8dYd2rrZzzF/wKMSAs=
+[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-grego" (connect: 0.00s, validation: 0.01s, handshake: 2.45s)
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-grego-notifications" at "2026-04-25T13:32:17.5953356Z"
+[Licensing::Module] Licensing Background thread has ended after 2.46s
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.3.7f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.3.7f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.008449 seconds.
+- Loaded All Assemblies, in  2.416 seconds
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.635 seconds
+Domain Reload Profiling: 3045ms
+	BeginReloadAssembly (356ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (4ms)
+	RebuildCommonClasses (433ms)
+	RebuildNativeTypeToScriptingClass (19ms)
+	initialDomainReloadingComplete (102ms)
+	LoadAllAssembliesAndSetupDomain (1498ms)
+		LoadAssemblies (348ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (1490ms)
+			TypeCache.Refresh (1487ms)
+				TypeCache.ScanAssembly (1142ms)
+			BuildScriptInfoCaches (0ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (637ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (566ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (80ms)
+			SetLoadedEditorAssemblies (4ms)
+			BeforeProcessingInitializeOnLoad (122ms)
+			ProcessInitializeOnLoadAttributes (219ms)
+			ProcessInitializeOnLoadMethodAttributes (140ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (1ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+========================================================================
+Worker process is ready to serve import requests
+Import Worker Mode flag is 0x00
+Begin MonoManager ReloadAssembly
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: 6872806136239-UnityPersXXXX
+  Product: Unity Personal
+  Type: Assigned
+  Expiration: Unlimited
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  1.831 seconds
+Refreshing native plugins compatible for Editor in 11.56 ms, found 3 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 8.79 ms, found 3 plugins.
+Package Manager log level set to [2]
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.936 seconds
+Domain Reload Profiling: 3752ms
+	BeginReloadAssembly (264ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (8ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (49ms)
+	RebuildCommonClasses (51ms)
+	RebuildNativeTypeToScriptingClass (15ms)
+	initialDomainReloadingComplete (61ms)
+	LoadAllAssembliesAndSetupDomain (1424ms)
+		LoadAssemblies (1004ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (565ms)
+			TypeCache.Refresh (388ms)
+				TypeCache.ScanAssembly (363ms)
+			BuildScriptInfoCaches (155ms)
+			ResolveRequiredComponents (15ms)
+	FinalizeReload (1937ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (1687ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (3ms)
+			SetLoadedEditorAssemblies (8ms)
+			BeforeProcessingInitializeOnLoad (216ms)
+			ProcessInitializeOnLoadAttributes (552ms)
+			ProcessInitializeOnLoadMethodAttributes (895ms)
+			AfterProcessingInitializeOnLoad (12ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (11ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
+Refreshing native plugins compatible for Editor in 9.58 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 11 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 8562 unused Assets / (5.4 MB). Loaded Objects now: 9585.
+Memory consumption went from 222.4 MB to 217.0 MB.
+Total: 20.477400 ms (FindLiveObjects: 1.433200 ms CreateObjectMapping: 1.701200 ms MarkObjects: 12.870200 ms  DeleteObjects: 4.470700 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 903591.258607 seconds.
+  path: Assets/Dream Painting/Materials/Shadder alpha.shadergraph
+  artifactKey: Guid(973869b2b8c2601468ffdbafdc583dba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Dream Painting/Materials/Shadder alpha.shadergraph using Guid(973869b2b8c2601468ffdbafdc583dba) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e4afff7802dc1e6106fefc66d86fafd9') in 2.4670034 seconds
+Number of updated asset objects reloaded before import = 1Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 121.57 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.16 ms.
+Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 8526 unused Assets / (5.6 MB). Loaded Objects now: 9960.
+Memory consumption went from 291.9 MB to 286.3 MB.
+Total: 156.410000 ms (FindLiveObjects: 8.375600 ms CreateObjectMapping: 21.197100 ms MarkObjects: 119.962700 ms  DeleteObjects: 6.870800 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 177.276329 seconds.
+  path: Assets/Dream Painting/Materials/Planet_Shader.shadergraph
+  artifactKey: Guid(0ce9a7dd327d09d45b8ab00e6b5a1bd2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Dream Painting/Materials/Planet_Shader.shadergraph using Guid(0ce9a7dd327d09d45b8ab00e6b5a1bd2) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '0c3274406d62311d23441e0631de08fa') in 0.8315946 seconds
+Number of updated asset objects reloaded before import = 3Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 2153.362765 seconds.
+  path: Assets/Dream Painting/Materials/Planet_Shader.shadergraph
+  artifactKey: Guid(0ce9a7dd327d09d45b8ab00e6b5a1bd2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Dream Painting/Materials/Planet_Shader.shadergraph using Guid(0ce9a7dd327d09d45b8ab00e6b5a1bd2) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '4e86d1883eec9346491fe953ee7ace1a') in 0.8892398 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 272.462177 seconds.
+  path: Assets/Dream Painting/Materials/Atmosphere_Shader.shadergraph
+  artifactKey: Guid(67893d33fe6573541910bd8fce490cc6) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Dream Painting/Materials/Atmosphere_Shader.shadergraph using Guid(67893d33fe6573541910bd8fce490cc6) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '13e871022e333f06f68b2ae9b0d94764') in 0.616362 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 431.634605 seconds.
+  path: Assets/Dream Painting/Materials/Atmosphere_Shader.shadergraph
+  artifactKey: Guid(67893d33fe6573541910bd8fce490cc6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Dream Painting/Materials/Atmosphere_Shader.shadergraph using Guid(67893d33fe6573541910bd8fce490cc6) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '71f255918a4414923a4989c51d24d954') in 0.7641503 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.153002 seconds.
+  path: Assets/Dream Painting/Materials/Planet_Shader.shadergraph
+  artifactKey: Guid(0ce9a7dd327d09d45b8ab00e6b5a1bd2) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Dream Painting/Materials/Planet_Shader.shadergraph using Guid(0ce9a7dd327d09d45b8ab00e6b5a1bd2) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '4971f269feb2776697cacfe28cf9fb5e') in 0.2303443 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 48.604225 seconds.
+  path: Assets/Dream Painting/Materials/Atmosphere_Shader.shadergraph
+  artifactKey: Guid(67893d33fe6573541910bd8fce490cc6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Dream Painting/Materials/Atmosphere_Shader.shadergraph using Guid(67893d33fe6573541910bd8fce490cc6) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '091861cce8c7661d73d2f3ee96f3880f') in 0.5849219 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.067011 seconds.
+  path: Assets/Dream Painting/Materials/Atmosphere_Shader.shadergraph
+  artifactKey: Guid(67893d33fe6573541910bd8fce490cc6) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Dream Painting/Materials/Atmosphere_Shader.shadergraph using Guid(67893d33fe6573541910bd8fce490cc6) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'a8b7136ee013a074f360837edf169ca4') in 0.0385932 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 113.557111 seconds.
+  path: Assets/Dream Painting/Materials/Planet_Material.mat
+  artifactKey: Guid(672853600434e2a45b59232d63d81075) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Dream Painting/Materials/Planet_Material.mat using Guid(672853600434e2a45b59232d63d81075) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '3bc48bdb6c074e22e100ed277e736482') in 0.0778609 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 117.456775 seconds.
+  path: Assets/Dream Painting/Materials/Atmosphere_Material.mat
+  artifactKey: Guid(3d8139a2357b5d04ebdaf69441c68cd8) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Dream Painting/Materials/Atmosphere_Material.mat using Guid(3d8139a2357b5d04ebdaf69441c68cd8) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '7eae7b1d0d28f6a859609d9566812f5a') in 0.0249132 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 15.534932 seconds.
+  path: Assets/OutdoorsScene.unity
+  artifactKey: Guid(8124e5870f4fd4c779e7a5f994e84ad1) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/OutdoorsScene.unity using Guid(8124e5870f4fd4c779e7a5f994e84ad1) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'dc69cab3413c16f655bfd36ac59a2c4c') in 0.0319709 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 172.730780 seconds.
+  path: Assets/Dream Painting/Materials/Planet_Shader.shadergraph
+  artifactKey: Guid(0ce9a7dd327d09d45b8ab00e6b5a1bd2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Dream Painting/Materials/Planet_Shader.shadergraph using Guid(0ce9a7dd327d09d45b8ab00e6b5a1bd2) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '99f0b33aca8a830beb4f1699775d52f7') in 0.568351 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.059681 seconds.
+  path: Assets/Dream Painting/Materials/Atmosphere_Shader.shadergraph
+  artifactKey: Guid(67893d33fe6573541910bd8fce490cc6) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Dream Painting/Materials/Atmosphere_Shader.shadergraph using Guid(67893d33fe6573541910bd8fce490cc6) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '0301a5a29a571eea51968548b860b283') in 0.2321254 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 1433.951292 seconds.
+  path: Assets/Dream Painting/Materials/Planet_Shader.shadergraph
+  artifactKey: Guid(0ce9a7dd327d09d45b8ab00e6b5a1bd2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Dream Painting/Materials/Planet_Shader.shadergraph using Guid(0ce9a7dd327d09d45b8ab00e6b5a1bd2) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'a1827889fdfef0a76a678fc989cd1dd8') in 0.1451564 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000376 seconds.
+  path: Assets/Dream Painting/Materials/Planet_Shader.shadergraph
+  artifactKey: Guid(0ce9a7dd327d09d45b8ab00e6b5a1bd2) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Dream Painting/Materials/Planet_Shader.shadergraph using Guid(0ce9a7dd327d09d45b8ab00e6b5a1bd2) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '707d716bb99ca8b04eea67e6ec5bae54') in 0.0355641 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 303.249951 seconds.
+  path: Assets/Dream Painting/Materials/Planet_Shader.shadergraph
+  artifactKey: Guid(0ce9a7dd327d09d45b8ab00e6b5a1bd2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Dream Painting/Materials/Planet_Shader.shadergraph using Guid(0ce9a7dd327d09d45b8ab00e6b5a1bd2) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '07c1cda138130bc941b27166a60457e0') in 0.0419177 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.567011 seconds.
+  path: Assets/Dream Painting/Materials/Planet_Shader.shadergraph
+  artifactKey: Guid(0ce9a7dd327d09d45b8ab00e6b5a1bd2) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Dream Painting/Materials/Planet_Shader.shadergraph using Guid(0ce9a7dd327d09d45b8ab00e6b5a1bd2) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'c830dcfcf7a61e7025db14f0182552df') in 0.0515926 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 272.243429 seconds.
+  path: Assets/Dream Painting/Materials/Planet_Shader.shadergraph
+  artifactKey: Guid(0ce9a7dd327d09d45b8ab00e6b5a1bd2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Dream Painting/Materials/Planet_Shader.shadergraph using Guid(0ce9a7dd327d09d45b8ab00e6b5a1bd2) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '84e63f59730dace1508d7c28016bfba8') in 0.1202696 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.426373 seconds.
+  path: Assets/Dream Painting/Materials/Planet_Shader.shadergraph
+  artifactKey: Guid(0ce9a7dd327d09d45b8ab00e6b5a1bd2) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Dream Painting/Materials/Planet_Shader.shadergraph using Guid(0ce9a7dd327d09d45b8ab00e6b5a1bd2) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '70e6041e12d11e4b66916669b3a90306') in 0.0493547 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 103.940583 seconds.
+  path: Assets/Dream Painting/Materials/Planet_Shader.shadergraph
+  artifactKey: Guid(0ce9a7dd327d09d45b8ab00e6b5a1bd2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Dream Painting/Materials/Planet_Shader.shadergraph using Guid(0ce9a7dd327d09d45b8ab00e6b5a1bd2) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '704655c5bb60f55b5c961c5e9a01037c') in 0.0450025 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.561599 seconds.
+  path: Assets/Dream Painting/Materials/Planet_Shader.shadergraph
+  artifactKey: Guid(0ce9a7dd327d09d45b8ab00e6b5a1bd2) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Dream Painting/Materials/Planet_Shader.shadergraph using Guid(0ce9a7dd327d09d45b8ab00e6b5a1bd2) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '666891e8c98779ebac780e9d7d85e968') in 0.0332595 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
