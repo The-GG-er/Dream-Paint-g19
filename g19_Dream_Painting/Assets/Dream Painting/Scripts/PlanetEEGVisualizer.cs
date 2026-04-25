@@ -18,52 +18,56 @@ public class PlanetEEGVisualizer : MonoBehaviour
     public Material planetMaterial;
     public int segmentCount = 180;
 
-    [Header("Moon Prefabs")]
+    [Header("Moons")]
     public GameObject alphaMoonPrefab;
     public GameObject betaMoonPrefab;
     public GameObject gammaMoonPrefab;
     public GameObject deltaMoonPrefab;
 
-    [Header("Orbit Config")]
-    public float spawnDistance = 18f; 
-    public float moonOrbitRadius = 8f;
-    public float moonOrbitSpeed = 25f;
-    [Range(0.1f, 1f)] public float spawnThreshold = 0.55f;
+    [Header("Orbit Settings")]
+    public float spawnDistance = 18f;
+    public float orbitRadius = 8f;
+    public float orbitSpeed = 25f;
+    public float spawnThreshold = 0.55f;
     public int maxMoons = 12;
 
     private Color[] segmentColors;
-    private Texture2D colorMapTexture; 
+    private Texture2D colorMap;
     private float currentAngle = 0f;
+
     private List<GameObject> activeMoons = new List<GameObject>();
 
     void Start()
     {
-        // Initialize Texture for Shader Graph
+        // Initialize circular color buffer
         segmentColors = new Color[segmentCount];
         for (int i = 0; i < segmentCount; i++)
             segmentColors[i] = Color.black;
 
-        colorMapTexture = new Texture2D(segmentCount, 1);
-        colorMapTexture.wrapMode = TextureWrapMode.Repeat;
-        colorMapTexture.filterMode = FilterMode.Point;
+        // Create texture (1D strip)
+        colorMap = new Texture2D(segmentCount, 1);
+        colorMap.wrapMode = TextureWrapMode.Repeat;
+        colorMap.filterMode = FilterMode.Point;
 
-        if (planetMaterial == null)
-            Debug.LogError("Assign the Map_Shader material in the Inspector!");
+        if (planetMaterial != null)
+            planetMaterial.SetTexture("_ColorMap", colorMap);
 
-        StartCoroutine(LivePlayback());
+        StartCoroutine(LiveLoop());
     }
 
-    IEnumerator LivePlayback()
+    IEnumerator LiveLoop()
     {
         while (true)
         {
             DataPoint d = GetCurrentDataFromPSD();
+
             if (d != null)
             {
                 UpdatePlanet(d);
-                CheckForMoonSpawn(d);
+                HandleMoons(d);
             }
-            yield return null; 
+
+            yield return null;
         }
     }
 
@@ -71,75 +75,70 @@ public class PlanetEEGVisualizer : MonoBehaviour
     {
         float step = rotationSpeed * Time.deltaTime;
         transform.Rotate(Vector3.up, step);
+
         currentAngle += step;
         if (currentAngle >= 360f) currentAngle -= 360f;
 
         int index = Mathf.FloorToInt((currentAngle / 360f) * segmentCount);
         index = Mathf.Clamp(index, 0, segmentCount - 1);
 
+        // Overwrite ONLY current segment (looping memory effect)
         string dominant = GetDominantBand(d);
         segmentColors[index] = GetBandColor(dominant);
 
-        colorMapTexture.SetPixels(segmentColors);
-        colorMapTexture.Apply();
+        colorMap.SetPixels(segmentColors);
+        colorMap.Apply();
 
-        if (planetMaterial != null)
-        {
-            planetMaterial.SetTexture("_ColorMap", colorMapTexture); 
-            planetMaterial.SetFloat("_CrackAmount", d.beta);
-            planetMaterial.SetFloat("_EmissionStrength", d.gamma * 2.5f);
-        }
+        // Shader parameters
+        planetMaterial.SetFloat("_CrackAmount", d.beta);
+        planetMaterial.SetFloat("_EmissionStrength", d.gamma * 2f);
     }
 
-    void CheckForMoonSpawn(DataPoint d)
+    void HandleMoons(DataPoint d)
     {
-        if (Time.frameCount % 100 == 0) // Check every ~1.5 seconds
+        if (Time.frameCount % 120 != 0) return;
+
+        float maxVal = Mathf.Max(d.alpha, d.beta, d.gamma, d.delta);
+        if (maxVal < spawnThreshold) return;
+
+        if (activeMoons.Count >= maxMoons)
         {
-            float maxVal = Mathf.Max(d.alpha, d.beta, d.gamma, d.delta);
-            
-            if (maxVal > spawnThreshold)
-            {
-                if (activeMoons.Count >= maxMoons)
-                {
-                    GameObject oldest = activeMoons[0];
-                    activeMoons.RemoveAt(0);
-                    Destroy(oldest);
-                }
-                SpawnMoon(GetDominantBand(d));
-            }
+            Destroy(activeMoons[0]);
+            activeMoons.RemoveAt(0);
         }
+
+        SpawnMoon(GetDominantBand(d));
     }
 
     void SpawnMoon(string band)
     {
-        GameObject prefabToSpawn = null;
+        GameObject prefab = null;
 
-        // Select the correct prefab based on the brain state
         switch (band)
         {
-            case "alpha": prefabToSpawn = alphaMoonPrefab; break;
-            case "beta":  prefabToSpawn = betaMoonPrefab;  break;
-            case "gamma": prefabToSpawn = gammaMoonPrefab; break;
-            case "delta": prefabToSpawn = deltaMoonPrefab; break;
+            case "alpha": prefab = alphaMoonPrefab; break;
+            case "beta": prefab = betaMoonPrefab; break;
+            case "gamma": prefab = gammaMoonPrefab; break;
+            case "delta": prefab = deltaMoonPrefab; break;
         }
 
-        if (prefabToSpawn == null) return;
+        if (prefab == null) return;
 
-        Vector3 spawnPos = transform.position + (Random.onUnitSphere * spawnDistance);
-        GameObject moon = Instantiate(prefabToSpawn, spawnPos, Quaternion.identity);
+        Vector3 spawnPos = transform.position + Random.onUnitSphere * spawnDistance;
+        GameObject moon = Instantiate(prefab, spawnPos, Quaternion.identity);
+
         activeMoons.Add(moon);
-        
-        // Setup the MoonOrbit script on the spawned object
-        MoonOrbit orbitScript = moon.GetComponent<MoonOrbit>();
-        if (orbitScript != null)
+
+        MoonOrbit orbit = moon.GetComponent<MoonOrbit>();
+        if (orbit != null)
         {
-            orbitScript.planet = this.transform;
-            orbitScript.orbitRadius = moonOrbitRadius + Random.Range(-1.5f, 1.5f);
-            orbitScript.orbitSpeed = moonOrbitSpeed * Random.Range(0.8f, 1.3f);
-            orbitScript.ActivateMoon();
+            orbit.planet = transform;
+            orbit.orbitRadius = orbitRadius + Random.Range(-1.5f, 1.5f);
+            orbit.orbitSpeed = orbitSpeed * Random.Range(0.8f, 1.2f);
+            orbit.ActivateMoon();
         }
 
-        Destroy(moon, 40f); // Clean up to keep the build running smooth
+        Destroy(moon, 40f);
     }
 
     DataPoint GetCurrentDataFromPSD()
@@ -149,17 +148,23 @@ public class PlanetEEGVisualizer : MonoBehaviour
 
         lock (GameSettings.psdLock)
         {
-            if (GameSettings.psd == null || GameSettings.psdFreqs <= 0) return null;
+            if (GameSettings.psd == null || GameSettings.psdFreqs <= 0)
+                return null;
+
             freqs = GameSettings.psdFreqs;
             channels = GameSettings.psdChannels;
             psdCopy = (float[,])GameSettings.psd.Clone();
         }
 
         float alpha = 0, beta = 0, gamma = 0, delta = 0;
+
         for (int f = 0; f < freqs; f++)
         {
             float power = 0;
-            for (int ch = 0; ch < channels; ch++) power += psdCopy[f, ch];
+
+            for (int ch = 0; ch < channels; ch++)
+                power += psdCopy[f, ch];
+
             power /= channels;
 
             if (f >= 1 && f < 4) delta += power;
@@ -169,15 +174,20 @@ public class PlanetEEGVisualizer : MonoBehaviour
         }
 
         float total = alpha + beta + gamma + delta + 0.0001f;
-        return new DataPoint {
-            alpha = alpha / total, beta = beta / total,
-            gamma = gamma / total, delta = delta / total
+
+        return new DataPoint
+        {
+            alpha = alpha / total,
+            beta = beta / total,
+            gamma = gamma / total,
+            delta = delta / total
         };
     }
 
     string GetDominantBand(DataPoint d)
     {
         float max = Mathf.Max(d.alpha, d.beta, d.gamma, d.delta);
+
         if (max == d.alpha) return "alpha";
         if (max == d.beta) return "beta";
         if (max == d.gamma) return "gamma";
@@ -188,10 +198,10 @@ public class PlanetEEGVisualizer : MonoBehaviour
     {
         switch (band)
         {
-            case "alpha": return new Color(0.1f, 0.4f, 1.0f); 
-            case "beta":  return new Color(1.0f, 0.2f, 0.1f); 
-            case "gamma": return new Color(0.3f, 1.0f, 0.5f); 
-            case "delta": return new Color(0.95f, 0.95f, 1.0f); // Airy White
+            case "alpha": return new Color(0.1f, 0.4f, 1f);   // blue
+            case "beta": return new Color(1f, 0.2f, 0.1f);    // red
+            case "gamma": return new Color(0.3f, 1f, 0.5f);   // green
+            case "delta": return new Color(0.95f, 0.95f, 1f); // white
             default: return Color.black;
         }
     }

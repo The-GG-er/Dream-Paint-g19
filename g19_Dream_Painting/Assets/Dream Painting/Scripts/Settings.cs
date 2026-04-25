@@ -1,31 +1,26 @@
 using UnityEngine;
-using TMPro; // Required for TextMeshPro
-using UnityEngine.UI;
 
-public class SettingsMenu : MonoBehaviour
+public class Settings : MonoBehaviour
 {
-    public TMP_InputField ipInput;
-    public TMP_InputField portInput;
-    public Slider speedSlider;
+    // These are static so they stay in memory across scenes
+    public static string serverIP = "127.0.0.1";
+    public static float updateSpeed = 0.1f;
 
-    // Call this when the user clicks the "Save/Connect" button
-    public void ApplySettings()
+    // PSD Data placeholders for the Visualizer
+    public static float[,] psd;
+    public static int psdFreqs;
+    public static int psdChannels;
+    public static object psdLock = new object();
+
+    void Awake()
     {
-        // Update the static GameSettings with user input
-        GameSettings.serverIP = ipInput.text;
+        // Keep this object alive if it's placed in the scene
+        DontDestroyOnLoad(gameObject);
         
-        if (int.TryParse(portInput.text, out int newPort))
+        // Load last saved IP if it exists
+        if (PlayerPrefs.HasKey("SavedIP"))
         {
-            GameSettings.portManagerPort = newPort;
+            serverIP = PlayerPrefs.GetString("SavedIP");
         }
-
-        // Find the visualizer in the scene and update its speed
-        PlanetEEGVisualizer visualizer = FindFirstObjectByType<PlanetEEGVisualizer>();
-        if (visualizer != null)
-        {
-            visualizer.rotationSpeed = speedSlider.value;
-        }
-
-        Debug.Log($"Settings Applied: {GameSettings.serverIP}:{GameSettings.portManagerPort}");
     }
 }

@@ -49,10 +49,15 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.3.7f1\Editor\Data\Tools\BuildPipeline\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Dream Painting\Scripts_Alee\FakeEEGSender.cs" />
+    <Compile Include="Assets\Dream Painting\Scripts\DataPathHandler.cs" />
+    <Compile Include="Assets\Dream Painting\Scripts\MenuManager.cs" />
+    <Compile Include="Assets\Dream Painting\Scripts_Alee\FakeEEGConector.cs" />
     <Compile Include="Assets\Dream Painting\Scripts_Alee\LoadingScreen.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
     <Compile Include="Assets\Dream Painting\Scripts\SettingsManager.cs" />
     <Compile Include="Assets\Dream Painting\Scripts\MenuUI.cs" />
+    <Compile Include="Assets\Dream Painting\Scripts\Canonical.cs" />
     <Compile Include="Assets\Dream Painting\Scripts\GameManger.cs" />
     <Compile Include="Assets\Dream Painting\Scripts_Alee\PSDReading.cs" />
     <Compile Include="Assets\Dream Painting\Scripts_Alee\MainMenu.cs" />

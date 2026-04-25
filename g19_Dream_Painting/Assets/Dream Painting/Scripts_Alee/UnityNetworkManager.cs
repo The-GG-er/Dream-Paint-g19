@@ -19,7 +19,31 @@ public class UnityNetworkManager : MonoBehaviour
     private volatile bool isRunning = true;
     public static UnityNetworkManager Instance;
     private Thread udpListenThread;
+public int tcpPort = 5005;
+public int nChannels = 8;
 
+void Start()
+{
+    StartPSDListener();
+}
+
+void StartPSDListener()
+{
+    TcpClient client = new TcpClient();
+
+    StartCoroutine(WaitForTCPConnection(client, tcpPort, (connected) =>
+    {
+        if (connected)
+        {
+            Debug.Log("Connected to EEG source!");
+            StartTCPListenerForPSD(client, nChannels);
+        }
+        else
+        {
+            Debug.LogError("Failed to connect to EEG source.");
+        }
+    }));
+}
 
     void Awake()
     {

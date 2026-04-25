@@ -1,16 +1,47 @@
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
+using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class MenuUI : MonoBehaviour
 {
-    public InputField pathInput;
-    public Slider speedSlider;
+    [Header("UI References")]
+    public TMP_InputField ipInputField;
+    public string planetSceneName = "OutdoorsScene"; // Must match your scene name exactly
 
-    public void StartSimulation()
+    void Start()
     {
-        SettingsManager.Instance.dataPath = pathInput.text;
-        SettingsManager.Instance.updateSpeed = speedSlider.value;
+        // Fill the input box with the current or saved IP
+        if (ipInputField != null)
+        {
+            ipInputField.text = GameSettings.serverIP;
+        }
+    }
 
-        GameManager.Instance.StartSimulation();
+    public void OnPlayClicked()
+    {
+        // 1. Save the user's input data first
+        if (ipInputField != null)
+        {
+            GameSettings.serverIP = ipInputField.text;
+            PlayerPrefs.SetString("SavedIP", ipInputField.text);
+            PlayerPrefs.Save();
+        }
+
+        // 2. Load the game safely
+        StartCoroutine(SafeLoadScene());
+    }
+
+    IEnumerator SafeLoadScene()
+    {
+        // This wait prevents the TMP Cull bug by letting the UI finish its frame
+        yield return new WaitForEndOfFrame();
+        SceneManager.LoadScene(planetSceneName);
+    }
+
+    public void OnQuitClicked()
+    {
+        Application.Quit();
+        Debug.Log("Game Exited");
     }
 }
