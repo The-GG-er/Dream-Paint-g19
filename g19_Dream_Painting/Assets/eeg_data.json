@@ -1,0 +1,22 @@
+[
+  { "time": 0.0, "alpha": 15.5, "beta": 5.2, "gamma": 2.1, "delta": 1.5 },
+  { "time": 0.5, "alpha": 18.2, "beta": 4.8, "gamma": 1.9, "delta": 1.2 },
+  { "time": 1.0, "alpha": 12.1, "beta": 25.4, "gamma": 3.5, "delta": 2.0 },
+  { "time": 1.5, "alpha": 10.5, "beta": 28.9, "gamma": 4.2, "delta": 1.8 },
+  { "time": 2.0, "alpha": 5.2, "beta": 12.1, "gamma": 35.6, "delta": 4.5 },
+  { "time": 2.5, "alpha": 4.8, "beta": 10.5, "gamma": 38.2, "delta": 3.9 },
+  { "time": 3.0, "alpha": 3.1, "beta": 4.2, "gamma": 5.5, "delta": 45.2 },
+  { "time": 3.5, "alpha": 2.5, "beta": 3.9, "gamma": 4.8, "delta": 50.1 },
+  { "time": 4.0, "alpha": 20.5, "beta": 8.5, "gamma": 2.1, "delta": 10.2 },
+  { "time": 4.5, "alpha": 22.1, "beta": 7.2, "gamma": 1.8, "delta": 9.5 },
+  { "time": 5.0, "alpha": 10.2, "beta": 30.5, "gamma": 5.6, "delta": 3.2 },
+  { "time": 5.5, "alpha": 8.5, "beta": 32.1, "gamma": 6.2, "delta": 2.8 },
+  { "time": 6.0, "alpha": 5.4, "beta": 15.2, "gamma": 40.1, "delta": 6.1 },
+  { "time": 6.5, "alpha": 4.2, "beta": 12.8, "gamma": 42.5, "delta": 5.5 },
+  { "time": 7.0, "alpha": 2.1, "beta": 5.5, "gamma": 10.2, "delta": 55.6 },
+  { "time": 7.5, "alpha": 1.8, "beta": 4.2, "gamma": 8.5, "delta": 58.2 },
+  { "time": 8.0, "alpha": 25.4, "beta": 10.2, "gamma": 3.5, "delta": 5.1 },
+  { "time": 8.5, "alpha": 28.9, "beta": 9.5, "gamma": 2.8, "delta": 4.2 },
+  { "time": 9.0, "alpha": 5.5, "beta": 15.1, "gamma": 45.2, "delta": 8.5 },
+  { "time": 9.5, "alpha": 4.2, "beta": 13.5, "gamma": 48.1, "delta": 7.2 }
+]

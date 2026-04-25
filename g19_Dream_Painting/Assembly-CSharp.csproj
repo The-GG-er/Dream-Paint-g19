@@ -49,12 +49,9 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.3.7f1\Editor\Data\Tools\BuildPipeline\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Dream Painting\Scripts\MoonSurface.cs" />
-    <Compile Include="Assets\Dream Painting\Scripts\MoonSpawner.cs" />
-    <Compile Include="Assets\Dream Painting\Scripts\ItemSpawner.cs" />
-    <Compile Include="Assets\Dream Painting\Scripts\StarSky.cs" />
-    <Compile Include="Assets\Dream Painting\Scripts\RhythmPlanet.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
+    <Compile Include="Assets\Dream Painting\Scripts\PlanetEEGVisualizer.cs" />
+    <Compile Include="Assets\Dream Painting\Scripts\MoonScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
