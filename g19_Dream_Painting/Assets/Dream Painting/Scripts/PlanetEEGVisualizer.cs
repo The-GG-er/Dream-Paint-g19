@@ -1,125 +1,124 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using System.IO;
-
-[System.Serializable]
-public class DataPoint
-{
-    public float time;
-    public float alpha;
-    public float beta;
-    public float gamma;
-    public float delta;
-}
-
-[System.Serializable]
-public class DataWrapper
-{
-    public List<DataPoint> data;
-}
 
 public class PlanetEEGVisualizer : MonoBehaviour
 {
-    [Header("EEG Data")]
-    public string fileName = "eeg_data.json";
-    private List<DataPoint> dataPoints;
-    private int currentIndex = 0;
-
     [Header("Planet Settings")]
-    public float radius = 5f;
+    public float rotationSpeed = 20f;
 
     [Header("Material")]
     public Material planetMaterial;
-    private float reveal = 0f;
 
-    [Header("Moons")]
-    public MoonOrbit alphaMoon;
-    public MoonOrbit betaMoon;
-    public MoonOrbit gammaMoon;
-    public MoonOrbit deltaMoon;
+    [Header("Resolution")]
+    public int segmentCount = 180; // how many slices (2° each)
 
-    private bool alphaActivated = false;
-    private bool betaActivated = false;
-    private bool gammaActivated = false;
-    private bool deltaActivated = false;
-
-    [Header("Prefabs")]
-    public GameObject waterPrefab;
-    public GameObject firePrefab;
-    public GameObject forestPrefab;
-    public GameObject cloudPrefab;
-
-    [Header("Playback")]
-    public float stepDelay = 0.2f;
-
+    private Color[] segmentColors;
     private float currentAngle = 0f;
-    private float rotationPerStep;
-
-    private bool playbackFinished = false;
 
     void Start()
     {
-        LoadData();
+        segmentColors = new Color[segmentCount];
 
-        if (dataPoints == null || dataPoints.Count == 0)
-        {
-            Debug.LogError("No EEG data loaded!");
-            return;
-        }
+        // Initialize all to black
+        for (int i = 0; i < segmentCount; i++)
+            segmentColors[i] = Color.black;
 
-        rotationPerStep = 360f / dataPoints.Count;
-
-        StartCoroutine(Playback());
+        StartCoroutine(LivePlayback());
     }
 
-    void LoadData()
+    IEnumerator LivePlayback()
     {
-        string path = Path.Combine(Application.streamingAssetsPath, fileName);
-
-        if (File.Exists(path))
+        while (true)
         {
-            string json = File.ReadAllText(path);
-            string wrapped = "{ \"data\": " + json + "}";
+            DataPoint d = GetCurrentDataFromPSD();
 
-            DataWrapper wrapper = JsonUtility.FromJson<DataWrapper>(wrapped);
-            dataPoints = wrapper.data;
-        }
-        else
-        {
-            Debug.LogError("File not found: " + path);
+            if (d != null)
+            {
+                UpdatePlanet(d);
+            }
+
+            yield return null;
         }
     }
 
-    IEnumerator Playback()
+    void UpdatePlanet(DataPoint d)
     {
-        while (currentIndex < dataPoints.Count)
+        // Rotate continuously (time = rotation)
+        float step = rotationSpeed * Time.deltaTime;
+        transform.Rotate(Vector3.up, step);
+        currentAngle += step;
+
+        if (currentAngle >= 360f)
+            currentAngle -= 360f;
+
+        // Convert angle → segment index
+        int index = Mathf.FloorToInt((currentAngle / 360f) * segmentCount);
+
+        // Determine dominant band
+        string band = GetDominantBand(d);
+
+        // Get color for this band
+        Color bandColor = GetBandColor(band);
+
+        // OVERWRITE ONLY THIS SEGMENT
+        segmentColors[index] = bandColor;
+
+        // Send entire array to shader
+        planetMaterial.SetColorArray("_SegmentColors", segmentColors);
+
+        // Extra shader controls
+        planetMaterial.SetFloat("_CrackAmount", d.beta);
+    }
+
+    DataPoint GetCurrentDataFromPSD()
+    {
+        float[,] psdCopy;
+        int freqs;
+        int channels;
+
+        lock (GameSettings.psdLock)
         {
-            DataPoint d = dataPoints[currentIndex];
+            if (GameSettings.psd == null)
+                return null;
 
-            // Rotate planet
-            transform.Rotate(Vector3.up, rotationPerStep);
-            currentAngle += rotationPerStep;
+            freqs = GameSettings.psdFreqs;
+            channels = GameSettings.psdChannels;
 
-            // Determine dominant band
-            string band = GetDominantBand(d);
-
-            // Activate moons
-            HandleMoonActivation(band);
-
-            // Spawn terrain features
-            SpawnFeature(band);
-
-            // Update reveal shader
-            reveal = (float)currentIndex / dataPoints.Count;
-            planetMaterial.SetFloat("_Reveal", reveal);
-
-            currentIndex++;
-            yield return new WaitForSeconds(stepDelay);
+            psdCopy = (float[,])GameSettings.psd.Clone();
         }
 
-        playbackFinished = true;
-        Debug.Log("Playback finished.");
+        float alpha = 0f, beta = 0f, gamma = 0f, delta = 0f;
+
+        for (int f = 0; f < freqs; f++)
+        {
+            float power = 0f;
+
+            for (int ch = 0; ch < channels; ch++)
+                power += psdCopy[f, ch];
+
+            power /= channels;
+
+            float freqHz = f; // replace if real mapping exists
+
+            if (freqHz >= 0.5f && freqHz < 4f)
+                delta += power;
+            else if (freqHz >= 8f && freqHz < 12f)
+                alpha += power;
+            else if (freqHz >= 13f && freqHz < 30f)
+                beta += power;
+            else if (freqHz >= 30f)
+                gamma += power;
+        }
+
+        float total = alpha + beta + gamma + delta + 0.0001f;
+
+        return new DataPoint
+        {
+            alpha = alpha / total,
+            beta = beta / total,
+            gamma = gamma / total,
+            delta = delta / total
+        };
     }
 
     string GetDominantBand(DataPoint d)
@@ -132,77 +131,23 @@ public class PlanetEEGVisualizer : MonoBehaviour
         return "delta";
     }
 
-    void HandleMoonActivation(string band)
+    Color GetBandColor(string band)
     {
-        if (band == "alpha" && !alphaActivated)
-        {
-            alphaMoon.ActivateMoon();
-            alphaActivated = true;
-        }
-
-        if (band == "beta" && !betaActivated)
-        {
-            betaMoon.ActivateMoon();
-            betaActivated = true;
-        }
-
-        if (band == "gamma" && !gammaActivated)
-        {
-            gammaMoon.ActivateMoon();
-            gammaActivated = true;
-        }
-
-        if (band == "delta" && !deltaActivated)
-        {
-            deltaMoon.ActivateMoon();
-            deltaActivated = true;
-        }
-    }
-
-    void SpawnFeature(string band)
-    {
-        Vector3 direction = Quaternion.Euler(0, currentAngle, 0) * Vector3.forward;
-        Vector3 position = transform.position + direction * radius;
-
-        GameObject prefab = null;
-
         switch (band)
         {
-            case "alpha":
-                prefab = waterPrefab;
-                break;
-            case "beta":
-                prefab = firePrefab;
-                break;
-            case "gamma":
-                prefab = forestPrefab;
-                break;
-            case "delta":
-                prefab = cloudPrefab;
-                position += direction * 1.5f;
-                break;
-        }
-
-        if (prefab != null)
-        {
-            GameObject obj = Instantiate(prefab, position, Quaternion.identity);
-            obj.transform.up = direction;
-            obj.transform.parent = this.transform;
-
-            float scale = Random.Range(0.5f, 1.5f);
-            obj.transform.localScale *= scale;
+            case "alpha": return new Color(0.1f, 0.3f, 1f);   // blue
+            case "beta":  return new Color(1f, 0.2f, 0.1f);   // red
+            case "gamma": return new Color(0.2f, 1f, 0.3f);   // green
+            case "delta": return new Color(0.9f, 0.9f, 0.9f); // white
+            default: return Color.black;
         }
     }
 
-    void Update()
-    {
-        if (playbackFinished)
-        {
-            float rotX = Input.GetAxis("Mouse X") * 100f * Time.deltaTime;
-            float rotY = Input.GetAxis("Mouse Y") * 100f * Time.deltaTime;
-
-            transform.Rotate(Vector3.up, -rotX, Space.World);
-            transform.Rotate(Vector3.right, rotY, Space.World);
-        }
-    }
+    // --- Prefabs intentionally removed for shader-only approach ---
+    /*
+    public GameObject waterPrefab;
+    public GameObject firePrefab;
+    public GameObject forestPrefab;
+    public GameObject cloudPrefab;
+    */
 }
